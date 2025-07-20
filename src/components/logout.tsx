@@ -2,10 +2,15 @@
 import { LogOut } from "lucide-react";
 import { Button } from "./ui/button";
 import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export function Logout() {
+  const router = useRouter();
   const handleLogout = async () => {
     await authClient.signOut();
+    toast.success("Até logo!!");
+    router.push("/");
   };
   return (
     <div>
